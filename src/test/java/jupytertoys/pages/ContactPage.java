@@ -13,7 +13,9 @@ public class ContactPage {
     private By telephoneField = By.id("telephone");
     private By messageField = By.id("message");
     private By submitButton = By.cssSelector("#submit button");
+    private By forenameError = By.id("forename-err");
     private By emailError = By.id("email-err");
+    private By messageError = By.id("message-err");
 
     public ContactPage(WebDriver driver){
         this.driver = driver;
@@ -44,7 +46,15 @@ public class ContactPage {
         return new SecureAreaPage(driver);
     }
 
+    public String getForenameErrorText() {
+        return driver.findElement(forenameError).getText();
+    }
+
     public String getEmailErrorText() {
         return driver.findElement(emailError).getText();
+    }
+
+    public String getMessageErrorText() {
+        return driver.findElement(messageError).getText();
     }
 }

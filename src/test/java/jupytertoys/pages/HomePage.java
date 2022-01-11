@@ -18,7 +18,7 @@ public class HomePage {
     }
 
     public ContactPage clickContactPage() {
-        clickButton("#nav-contact");
+        clickButton("#nav-contact a");
         return new ContactPage(driver);
     }
 
@@ -39,6 +39,6 @@ public class HomePage {
 
     // Creating a method to click a button in the page.
     private void clickButton(String buttonId) {
-        driver.findElement(By.cssSelector(buttonId));
+        driver.findElement(By.cssSelector(buttonId)).click();
     }
 }
