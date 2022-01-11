@@ -2,9 +2,7 @@ package contact;
 
 import base.BaseTests;
 import org.testng.annotations.Test;
-import pages.ContactPage;
-import pages.LoginPage;
-import pages.SecureAreaPage;
+import jupytertoys.pages.ContactPage;
 
 import static org.testng.Assert.*;
 

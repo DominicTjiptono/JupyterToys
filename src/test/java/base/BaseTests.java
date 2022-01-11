@@ -1,7 +1,6 @@
 package base;
 
 import com.google.common.io.Files;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +11,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.HomePage;
-import utils.EventReporter;
-import utils.WindowManager;
+import jupytertoys.pages.HomePage;
+import jupytertoys.utils.EventReporter;
+import jupytertoys.utils.WindowManager;
 
 import java.io.File;
 import java.io.IOException;

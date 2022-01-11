@@ -1,4 +1,4 @@
-package utils;
+package jupytertoys.utils;
 
 import org.openqa.selenium.WebDriver;
 
