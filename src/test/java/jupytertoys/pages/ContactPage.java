@@ -16,6 +16,8 @@ public class ContactPage {
     private By forenameError = By.id("forename-err");
     private By emailError = By.id("email-err");
     private By messageError = By.id("message-err");
+    private By statusAlert = By.className("ng-scope");
+    private By backButton = By.className("btn");
 
     public ContactPage(WebDriver driver){
         this.driver = driver;
@@ -55,5 +57,14 @@ public class ContactPage {
 
     public String getMessageErrorText() {
         return driver.findElement(messageError).getText();
+    }
+
+    public String getAlertText(){
+        return driver.findElement(statusAlert).getText();
+    }
+
+    public ContactPage clickBackButton(){
+        driver.findElement(backButton).click();
+        return new ContactPage(driver);
     }
 }

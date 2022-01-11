@@ -1,7 +1,6 @@
 package contact;
 
 import base.BaseTests;
-import jupytertoys.pages.SecureAreaPage;
 import org.testng.annotations.Test;
 import jupytertoys.pages.ContactPage;
 
@@ -43,9 +42,15 @@ public class ContactTests extends BaseTests {
         contactPage.setMessage("I am new!");
 
         // Ensuring that the mandatory errors are no longer displayed.
-        assertEquals("", contactPage.getForenameErrorText());
-        assertEquals("", contactPage.getEmailErrorText());
-        assertEquals("", contactPage.getMessageErrorText());
+        try {
+            String forenameError = contactPage.getForenameErrorText();
+            String emailError = contactPage.getEmailErrorText();
+            String messageError = contactPage.getMessageErrorText();
+            assertEquals(1, 2); // obviously false, indicating something is not right.
+        }
+        catch (Exception e) {
+            assertTrue(true);
+        }
     }
 
     @Test
@@ -60,5 +65,8 @@ public class ContactTests extends BaseTests {
 
         // Clicking the submit button
         contactPage.clickSubmitButton();
+
+        // Verifying "Thanks" message text
+        assertEquals(contactPage.getAlertText(), "Thanks ex, we appreciate your feedback.");
     }
 }
