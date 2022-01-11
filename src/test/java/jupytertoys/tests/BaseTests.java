@@ -1,4 +1,4 @@
-package base;
+package jupytertoys.tests;
 
 import com.google.common.io.Files;
 import org.openqa.selenium.OutputType;
@@ -50,7 +50,7 @@ public class BaseTests {
             File screenshot = camera.getScreenshotAs(OutputType.FILE);
             try {
                 Files.move(screenshot,
-                        new File("resources/screenshots/" + result.getName() + ".png"));
+                        new File("target/screenshots/" + result.getName() + ".png"));
             }
             catch (IOException e) {
                 e.printStackTrace();

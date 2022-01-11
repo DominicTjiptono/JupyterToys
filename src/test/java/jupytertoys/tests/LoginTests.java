@@ -1,6 +1,6 @@
-package login;
+package jupytertoys.tests;
 
-import base.BaseTests;
+import jupytertoys.tests.BaseTests;
 import jupytertoys.pages.LoginPage;
 import org.testng.annotations.Test;
 

@@ -1,6 +1,5 @@
-package contact;
+package jupytertoys.tests;
 
-import base.BaseTests;
 import org.testng.annotations.Test;
 import jupytertoys.pages.ContactPage;
 
@@ -19,7 +18,7 @@ public class ContactTests extends BaseTests {
         contactPage.clickSubmitButton();
 
         // Asserting that the email error is displayed with text "Please enter a valid email"
-        assertEquals("Please enter a valid email", contactPage.getEmailErrorText());
+        assertEquals(contactPage.getEmailErrorText(), "Please enter a valid email");
     }
 
     @Test
@@ -46,7 +45,11 @@ public class ContactTests extends BaseTests {
             String forenameError = contactPage.getForenameErrorText();
             String emailError = contactPage.getEmailErrorText();
             String messageError = contactPage.getMessageErrorText();
-            assertEquals(1, 2); // obviously false, indicating something is not right.
+            System.out.println("Forename, email, and message errors are not supposed to exist, actual: ");
+            System.out.println("Forename error: " + forenameError);
+            System.out.println("Email error: " + emailError);
+            System.out.println("Message error: " + messageError);
+            fail(); // fail the test case since either forename, email, or message error exists.
         }
         catch (Exception e) {
             assertTrue(true);

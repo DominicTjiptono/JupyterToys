@@ -16,7 +16,7 @@ public class ContactPage {
     private By forenameError = By.id("forename-err");
     private By emailError = By.id("email-err");
     private By messageError = By.id("message-err");
-    private By statusAlert = By.className("ng-scope");
+    private By statusAlert = By.className("alert-success");
     private By backButton = By.className("btn");
 
     public ContactPage(WebDriver driver){
