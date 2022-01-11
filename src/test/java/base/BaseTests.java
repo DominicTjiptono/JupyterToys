@@ -17,6 +17,7 @@ import jupytertoys.utils.WindowManager;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 
 public class BaseTests {
     private EventFiringWebDriver driver;
@@ -26,6 +27,7 @@ public class BaseTests {
     public void setUp() {
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         goHome();
     }
 

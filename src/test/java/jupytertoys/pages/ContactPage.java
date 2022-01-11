@@ -12,7 +12,7 @@ public class ContactPage {
     private By emailField = By.id("email");
     private By telephoneField = By.id("telephone");
     private By messageField = By.id("message");
-    private By submitButton = By.cssSelector("btn-primary");
+    private By submitButton = By.className("btn-primary");
     private By forenameError = By.id("forename-err");
     private By emailError = By.id("email-err");
     private By messageError = By.id("message-err");
@@ -41,9 +41,8 @@ public class ContactPage {
         driver.findElement(messageField).sendKeys(message);
     }
 
-    public SecureAreaPage clickSubmitButton(){
+    public void clickSubmitButton(){
         driver.findElement(submitButton).click();
-        return new SecureAreaPage(driver);
     }
 
     public String getForenameErrorText() {
