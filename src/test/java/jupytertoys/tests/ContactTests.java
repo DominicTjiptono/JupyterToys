@@ -12,7 +12,7 @@ public class ContactTests extends BaseTests {
         contactPage.setEmail("thisisnotavalidemail");
         contactPage.clickSubmitButton();
         assertEquals(contactPage.getEmailErrorText(), "Please enter a valid email",
-                "Email error occurs");
+                "Email error is supposed to occur!");
     }
 
     @Test
@@ -20,20 +20,20 @@ public class ContactTests extends BaseTests {
         ContactPage contactPage = homePage.clickContactPage();
         contactPage.clickSubmitButton();
         assertEquals(contactPage.getForenameErrorText(), "Forename is required",
-                "Forename error occurs");
+                "Forename error is supposed to occur!");
         assertEquals(contactPage.getEmailErrorText(), "Email is required",
-                "Email error occurs");
+                "Email error is supposed to occur!");
         assertEquals(contactPage.getMessageErrorText(), "Message is required",
-                "Message error occurs");
+                "Message error is supposed to occur!");
         contactPage.setForename("ex");
         contactPage.setEmail("example@gmail.com");
         contactPage.setMessage("I am new!");
         assertEquals(contactPage.getForenameErrorText(), "",
-                "Forename error does not exist");
+                "Forename error should not exist!");
         assertEquals(contactPage.getEmailErrorText(), "",
-                "Email error does not exist");
+                "Email error should not exist!");
         assertEquals(contactPage.getMessageErrorText(), "",
-                "Message error does not exist");
+                "Message error should not exist!");
     }
 
     @Test
@@ -44,6 +44,6 @@ public class ContactTests extends BaseTests {
         contactPage.setMessage("I am new!");
         contactPage.clickSubmitButton();
         assertEquals(contactPage.getAlertText(), "Thanks ex, we appreciate your feedback.",
-                "Alert text appears");
+                "Alert text should have appeared!");
     }
 }
