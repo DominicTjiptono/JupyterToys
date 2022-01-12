@@ -18,6 +18,9 @@ public class ContactPage {
     private By messageError = By.id("message-err");
     private By statusAlert = By.className("alert-success");
     private By backButton = By.className("btn");
+    private By usernameMenuBar = By.id("nav-user");
+    private By usernameField = By.id("loginUserName");
+    private By passwordField = By.id("loginPassword");
 
     public ContactPage(WebDriver driver){
         this.driver = driver;
@@ -29,6 +32,14 @@ public class ContactPage {
 
     public void setSurname(String surname){
         driver.findElement(surnameField).sendKeys(surname);
+    }
+
+    public void setUsername(String username){
+        driver.findElement(usernameField).sendKeys(username);
+    }
+
+    public void setPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
     }
 
     public void setEmail(String email){
@@ -48,23 +59,59 @@ public class ContactPage {
     }
 
     public String getForenameErrorText() {
-        return driver.findElement(forenameError).getText();
+        var elements = driver.findElements(forenameError);
+        if (elements.size() == 0) {
+            return "";
+        }
+        return elements.get(0).getText();
     }
 
     public String getEmailErrorText() {
-        return driver.findElement(emailError).getText();
+        var elements = driver.findElements(emailError);
+        if (elements.size() == 0) {
+            return "";
+        }
+        return elements.get(0).getText();
     }
 
     public String getMessageErrorText() {
-        return driver.findElement(messageError).getText();
+        var elements = driver.findElements(messageError);
+        if (elements.size() == 0) {
+            return "";
+        }
+        return elements.get(0).getText();
     }
 
     public String getAlertText(){
-        return driver.findElement(statusAlert).getText();
+        var elements = driver.findElements(statusAlert);
+        if (elements.size() == 0) {
+            return "";
+        }
+        return elements.get(0).getText();
     }
 
-    public ContactPage clickBackButton(){
+    public void clickBackButton(){
         driver.findElement(backButton).click();
-        return new ContactPage(driver);
+    }
+
+    public void clickLoginPage() {
+        clickButton("#nav-login");
+    }
+
+    public void clickLogoutMenu() {
+        clickButton("#nav-logout");
+    }
+
+    public void clickLogoutButton() {
+        clickButton("btn-success");
+    }
+
+    public String getUsernameInMenuBar() {
+        return driver.findElement(usernameMenuBar).getText();
+    }
+
+    // Creating a method to click a button in the page.
+    private void clickButton(String buttonId) {
+        driver.findElement(By.cssSelector(buttonId)).click();
     }
 }

@@ -31,9 +31,9 @@ public class ContactTests extends BaseTests {
 
         // Ensuring that the errors "Forename is required",
         // "Email is required", and "Message is required" are shown.
-        assertEquals("Forename is required", contactPage.getForenameErrorText());
-        assertEquals("Email is required", contactPage.getEmailErrorText());
-        assertEquals("Message is required", contactPage.getMessageErrorText());
+        assertEquals(contactPage.getForenameErrorText(), "Forename is required");
+        assertEquals(contactPage.getEmailErrorText(), "Email is required");
+        assertEquals(contactPage.getMessageErrorText(), "Message is required");
 
         // Populating mandatory fields
         contactPage.setForename("ex");
@@ -41,19 +41,12 @@ public class ContactTests extends BaseTests {
         contactPage.setMessage("I am new!");
 
         // Ensuring that the mandatory errors are no longer displayed.
-        try {
-            String forenameError = contactPage.getForenameErrorText();
-            String emailError = contactPage.getEmailErrorText();
-            String messageError = contactPage.getMessageErrorText();
-            System.out.println("Forename, email, and message errors are not supposed to exist, actual: ");
-            System.out.println("Forename error: " + forenameError);
-            System.out.println("Email error: " + emailError);
-            System.out.println("Message error: " + messageError);
-            fail(); // fail the test case since either forename, email, or message error exists.
-        }
-        catch (Exception e) {
-            assertTrue(true);
-        }
+        String forenameError = contactPage.getForenameErrorText();
+        String emailError = contactPage.getEmailErrorText();
+        String messageError = contactPage.getMessageErrorText();
+        assertEquals(forenameError, "");
+        assertEquals(emailError, "");
+        assertEquals(messageError, "");
     }
 
     @Test
