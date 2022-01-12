@@ -2,7 +2,7 @@ package jupytertoys.tests;
 
 import jupytertoys.pages.ContactPage;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class LoginTests extends BaseTests {
     @Test

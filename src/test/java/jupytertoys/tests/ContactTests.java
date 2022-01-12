@@ -3,7 +3,7 @@ package jupytertoys.tests;
 import org.testng.annotations.Test;
 import jupytertoys.pages.ContactPage;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class ContactTests extends BaseTests {
     @Test
