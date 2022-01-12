@@ -18,6 +18,7 @@ import jupytertoys.utils.WindowManager;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Objects;
 
 public class BaseTests {
     private EventFiringWebDriver driver;
@@ -25,6 +26,9 @@ public class BaseTests {
 
     @BeforeClass
     public void setUp() {
+        for (File file : Objects.requireNonNull(new File("target/screenshots/").listFiles())) {
+            file.delete();
+        }
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));

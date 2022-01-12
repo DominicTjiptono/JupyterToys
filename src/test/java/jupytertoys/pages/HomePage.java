@@ -49,7 +49,11 @@ public class HomePage {
     }
 
     public String getUsernameInMenuBar() {
-        return driver.findElement(usernameMenuBar).getText();
+        var elements = driver.findElements(usernameMenuBar);
+        if (elements.size() > 0) {
+            return elements.get(0).getText();
+        }
+        return "";
     }
 
     public void clickLoginButton(){

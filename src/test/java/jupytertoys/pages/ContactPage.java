@@ -2,6 +2,7 @@ package jupytertoys.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ContactPage {
 
@@ -12,7 +13,6 @@ public class ContactPage {
     private By emailField = By.id("email");
     private By telephoneField = By.id("telephone");
     private By messageField = By.id("message");
-    private By submitButton = By.className("btn-primary");
     private By forenameError = By.id("forename-err");
     private By emailError = By.id("email-err");
     private By messageError = By.id("message-err");
@@ -55,7 +55,7 @@ public class ContactPage {
     }
 
     public void clickSubmitButton(){
-        driver.findElement(submitButton).click();
+        driver.findElements(By.className("btn-primary")).get(0).click();
     }
 
     public String getForenameErrorText() {
@@ -102,12 +102,20 @@ public class ContactPage {
         clickButton("#nav-logout");
     }
 
+    public void clickLoginButton(){
+        driver.findElements(By.className("btn-primary")).get(1).click();
+    }
+
     public void clickLogoutButton() {
-        clickButton("btn-success");
+        driver.findElement(By.className("btn-success")).click();
     }
 
     public String getUsernameInMenuBar() {
-        return driver.findElement(usernameMenuBar).getText();
+        var elements = driver.findElements(usernameMenuBar);
+        if (elements.size() > 0) {
+            return elements.get(0).getText();
+        }
+        return "";
     }
 
     // Creating a method to click a button in the page.
