@@ -19,8 +19,10 @@ public class ShopPage {
         this.driver = driver;
     }
 
-    public String getCartMenuText() {
-        return driver.findElement(cartMenu).getText();
+    public int getNumberOfItemsInCart() {
+        return Integer.parseInt(driver.findElement(cartMenu).getText()
+                .substring(driver.findElement(cartMenu).getText().indexOf("(")+1,
+                        driver.findElement(cartMenu).getText().indexOf(")")));
     }
 
     public Product getProduct(Function<Product, Boolean> comparison) {

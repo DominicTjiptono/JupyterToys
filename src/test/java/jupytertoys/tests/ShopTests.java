@@ -26,7 +26,7 @@ public class ShopTests extends BaseTests {
         Product product = shopPage.getProduct(p -> p.getPrice() == 9.99);
         assertNotEquals(product, null);
         product.getBuy().click();
-        assertEquals(shopPage.getCartMenuText(), "Cart (1)",
+        assertEquals(shopPage.getNumberOfItemsInCart(), 1,
                 "Incorrect number of items in cart.");
     }
 }
