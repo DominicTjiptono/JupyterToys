@@ -8,20 +8,23 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 public class ShopTests extends BaseTests {
     @Test
     public void testCase06() {
         ShopPage shopPage = homePage.clickShopPage();
-        Product product = shopPage.getProduct("Teddy Bear");
+        Product product = shopPage.getProduct(p -> p.getTitle().equals("Teddy Bear"));
+        assertNotEquals(product, null);
         assertEquals(product.getPrice(), 12.99,
-                        "Invalid Teddy Bear price.");
+                "Invalid Teddy Bear price.");
     }
 
     @Test
     public void testCase07() {
         ShopPage shopPage = homePage.clickShopPage();
-        Product product = shopPage.getProduct(9.99);
+        Product product = shopPage.getProduct(p -> p.getPrice() == 9.99);
+        assertNotEquals(product, null);
         product.getBuy().click();
         assertEquals(shopPage.getCartMenuText(), "Cart (1)",
                 "Incorrect number of items in cart.");
