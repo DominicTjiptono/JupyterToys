@@ -1,15 +1,17 @@
 package jupytertoys.components;
 
+import org.openqa.selenium.WebElement;
+
 public class Product {
     // Class attributes
     private String title;
-    private String imageSource;
-    private String price;
+    private double price;
+    WebElement buy;
 
-    public Product(String title, String imageSource, String price) {
+    public Product(String title, double price, WebElement buy) {
         this.title = title;
-        this.imageSource = imageSource;
         this.price = price;
+        this.buy = buy;
     }
 
     public String getTitle() {
@@ -20,19 +22,19 @@ public class Product {
         this.title = title;
     }
 
-    public String getImageSource() {
-        return imageSource;
-    }
-
-    public void setImageSource(String imageSource) {
-        this.imageSource = imageSource;
-    }
-
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public WebElement getBuy() {
+        return buy;
+    }
+
+    public void setBuy(WebElement buy) {
+        this.buy = buy;
     }
 }
