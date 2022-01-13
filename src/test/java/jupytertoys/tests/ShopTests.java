@@ -1,5 +1,6 @@
 package jupytertoys.tests;
 
+import jupytertoys.components.Product;
 import jupytertoys.pages.ShopPage;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -12,11 +13,13 @@ public class ShopTests extends BaseTests {
     @Test
     public void testCase06() {
         ShopPage shopPage = homePage.clickShopPage();
-        List<WebElement> webElementsForTitles = shopPage.getWebElementsForTitles();
-        List<WebElement> webElementsForPrices = shopPage.getWebElementsForPrices();
-        assertEquals(webElementsForTitles.get(0).getText(), "Teddy Bear",
-                "Invalid name of first item.");
-        assertEquals(webElementsForPrices.get(0).getText(), "$12.99",
-                "Invalid Teddy Bear price.");
+        List<Product> products = shopPage.getProducts();
+        for (Product product : products) {
+            if (product.getTitle().equals("Teddy Bear")) {
+                assertEquals(product.getPrice(), "$12.99",
+                        "Invalid Teddy Bear price.");
+                break;
+            }
+        }
     }
 }
