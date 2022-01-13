@@ -36,6 +36,7 @@ public class ShopTests extends BaseTests {
         }
 
         products.get(index).getBuy().click();
-        assertEquals(shopPage.getCartMenuText(), "Cart (1)");
+        assertEquals(shopPage.getCartMenuText(), "Cart (1)",
+                "Incorrect number of items in cart.");
     }
 }
