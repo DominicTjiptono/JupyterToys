@@ -22,6 +22,30 @@ public class ShopPage {
         return driver.findElement(cartMenu).getText();
     }
 
+    public Product getProduct(String title) {
+        Product matchingProduct = null;
+        for (Product product : getProducts()) {
+            if (product.getTitle().equals(title)) {
+                matchingProduct = product;
+                break;
+            }
+        }
+
+        return matchingProduct;
+    }
+
+    public Product getProduct(double price) {
+        Product matchingProduct = null;
+        for (Product product : getProducts()) {
+            if (product.getPrice() == price) {
+                matchingProduct = product;
+                break;
+            }
+        }
+
+        return matchingProduct;
+    }
+
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
         List<WebElement> webElementsForTitles = driver.findElements(By.className("product-title"));
