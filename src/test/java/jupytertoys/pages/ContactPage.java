@@ -1,5 +1,6 @@
 package jupytertoys.pages;
 
+import jupytertoys.components.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,6 +22,14 @@ public class ContactPage {
 
     public ContactPage(WebDriver driver){
         this.driver = driver;
+    }
+
+    public void populateFieldsFromContactData(ContactData contactData) {
+        setForename(contactData.getForename());
+        setSurname(contactData.getSurname());
+        setEmail(contactData.getEmail());
+        setTelephone(contactData.getTelephone());
+        setMessage(contactData.getMessage());
     }
 
     public void setForename(String forename){

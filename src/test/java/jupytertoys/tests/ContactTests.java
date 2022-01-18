@@ -1,5 +1,6 @@
 package jupytertoys.tests;
 
+import jupytertoys.components.ContactData;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import jupytertoys.pages.ContactPage;
@@ -40,9 +41,8 @@ public class ContactTests extends BaseTests {
     @Test
     public void testCase03() {
         ContactPage contactPage = homePage.clickContactPage();
-        contactPage.setForename("ex");
-        contactPage.setEmail("example@gmail.com");
-        contactPage.setMessage("I am new!");
+        contactPage.populateFieldsFromContactData(new ContactData("ex", "",
+                "example@gmail.com", "", "I am new!"));
         contactPage.clickSubmitButton();
         assertEquals(contactPage.getErrorText(By.className("alert-success")), "Thanks ex, we appreciate your feedback.",
                 "Alert text should have appeared!");
