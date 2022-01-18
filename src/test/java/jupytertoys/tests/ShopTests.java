@@ -30,4 +30,15 @@ public class ShopTests extends BaseTests {
         assertEquals(shopPage.getNumberOfItemsInCart(), before + 1,
                 "Incorrect number of items in cart.");
     }
+
+    @Test
+    public void testCase09() {
+        ShopPage shopPage = homePage.clickShopPage();
+        Product product = shopPage.getProduct(p -> p.getRating() == 5);
+        assertNotEquals(product, null);
+        int before = shopPage.getNumberOfItemsInCart();
+        product.getBuy().click();
+        assertEquals(shopPage.getNumberOfItemsInCart(), before + 1,
+                "Incorrect number of items in cart.");
+    }
 }

@@ -6,11 +6,13 @@ public class Product {
     // Class attributes
     private String title;
     private double price;
+    private int rating;
     WebElement buy;
 
-    public Product(String title, double price, WebElement buy) {
+    public Product(String title, double price, int rating, WebElement buy) {
         this.title = title;
         this.price = price;
+        this.rating = rating;
         this.buy = buy;
     }
 
@@ -28,6 +30,14 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public WebElement getBuy() {

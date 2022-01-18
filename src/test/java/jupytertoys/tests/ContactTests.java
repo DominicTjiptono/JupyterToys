@@ -11,7 +11,7 @@ public class ContactTests extends BaseTests {
         ContactPage contactPage = homePage.clickContactPage();
         contactPage.setEmail("thisisnotavalidemail");
         contactPage.clickSubmitButton();
-        assertEquals(contactPage.getEmailErrorText(), "Please enter a valid email",
+        assertEquals(contactPage.getErrorText("email"), "Please enter a valid email",
                 "Email error is supposed to occur!");
     }
 
@@ -19,20 +19,20 @@ public class ContactTests extends BaseTests {
     public void testCase02() {
         ContactPage contactPage = homePage.clickContactPage();
         contactPage.clickSubmitButton();
-        assertEquals(contactPage.getForenameErrorText(), "Forename is required",
+        assertEquals(contactPage.getErrorText("forename"), "Forename is required",
                 "Forename error is supposed to occur!");
-        assertEquals(contactPage.getEmailErrorText(), "Email is required",
+        assertEquals(contactPage.getErrorText("email"), "Email is required",
                 "Email error is supposed to occur!");
-        assertEquals(contactPage.getMessageErrorText(), "Message is required",
+        assertEquals(contactPage.getErrorText("message"), "Message is required",
                 "Message error is supposed to occur!");
         contactPage.setForename("ex");
         contactPage.setEmail("example@gmail.com");
         contactPage.setMessage("I am new!");
-        assertEquals(contactPage.getForenameErrorText(), "",
+        assertEquals(contactPage.getErrorText("forename"), "",
                 "Forename error should not exist!");
-        assertEquals(contactPage.getEmailErrorText(), "",
+        assertEquals(contactPage.getErrorText("email"), "",
                 "Email error should not exist!");
-        assertEquals(contactPage.getMessageErrorText(), "",
+        assertEquals(contactPage.getErrorText("message"), "",
                 "Message error should not exist!");
     }
 

@@ -64,24 +64,8 @@ public class ContactPage {
         driver.findElement(By.className("btn-primary")).click();
     }
 
-    public String getForenameErrorText() {
-        var elements = driver.findElements(forenameError);
-        if (elements.size() == 0) {
-            return "";
-        }
-        return elements.get(0).getText();
-    }
-
-    public String getEmailErrorText() {
-        var elements = driver.findElements(emailError);
-        if (elements.size() == 0) {
-            return "";
-        }
-        return elements.get(0).getText();
-    }
-
-    public String getMessageErrorText() {
-        var elements = driver.findElements(messageError);
+    public String getErrorText(String errorName) {
+        var elements = driver.findElements(By.id(errorName + "-err"));
         if (elements.size() == 0) {
             return "";
         }

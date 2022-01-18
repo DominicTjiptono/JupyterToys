@@ -42,6 +42,7 @@ public class ShopPage {
             products.add(new Product(item.findElement(By.cssSelector(".product-title")).getText(),
                     Double.parseDouble(item.findElement(By.cssSelector(".product-price"))
                             .getText().replace("$", "")),
+                    Integer.parseInt(item.findElement(By.cssSelector(".rating")).getText()),
                     item.findElement(By.className("btn-success"))));
         }
 
