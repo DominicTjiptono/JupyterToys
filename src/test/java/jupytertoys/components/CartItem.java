@@ -18,10 +18,6 @@ public class CartItem {
         this.remove = remove;
     }
 
-    public boolean isValid() {
-        return price * quantity == subtotal;
-    }
-
     public int getQuantity() {
         return quantity;
     }

@@ -29,15 +29,24 @@ public class CartPage {
         return null;
     }
 
+    public int getIndexOfHeaderWithHeading(String heading) {
+        for (int i = 0; i < driver.findElements(By.tagName("th")).size(); i++) {
+            if (driver.findElements(By.tagName("th")).get(i).getText().equals(heading)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public List<CartItem> getCartItems() {
         List<CartItem> cartItems = new ArrayList<>();
         List<WebElement> items = driver.findElements(By.className("cart-item"));
         for (WebElement item : items) {
             cartItems.add(new CartItem(Integer.parseInt(
                     item.findElement(By.className("input-mini")).getAttribute("value")),
-                    item.findElements(By.tagName("td")).get(1).getText(),
-                    Double.parseDouble(item.findElements(By.tagName("td")).get(2).getText().substring(1)),
-                    Double.parseDouble(item.findElements(By.tagName("td")).get(3).getText().substring(1)),
+                    item.findElements(By.tagName("td")).get(getIndexOfHeaderWithHeading("Item")).getText(),
+                    Double.parseDouble(item.findElements(By.tagName("td")).get(getIndexOfHeaderWithHeading("Price")).getText().substring(1)),
+                    Double.parseDouble(item.findElements(By.tagName("td")).get(getIndexOfHeaderWithHeading("Subtotal")).getText().substring(1)),
                     item.findElement(By.className("btn-mini"))));
         }
         return cartItems;
