@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
 
 
 public class CartTests extends BaseTests {
@@ -23,18 +24,24 @@ public class CartTests extends BaseTests {
         fluffyBunny.buyProduct(5);
         valentineBear.buyProduct(3);
         CartPage cartPage = shopPage.clickCartPage();
-        assertEquals(cartPage.getNthProductPrice(1), 10.99,
-                "Invalid Stuffed Frog price.");
-        assertEquals(cartPage.getNthProductPrice(2), 8.99,
-                "Invalid Fluffy Bunny price.");
-        assertEquals(cartPage.getNthProductPrice(3), 13.99,
-                "Invalid Valentine Bear price.");
-        assertEquals(cartPage.getNthProductPrice(1) * cartPage.getNthProductQuantity(1),
-                cartPage.getNthProductSubtotal(1), "Invalid Stuffed Frog subtotal.");
-        assertEquals(cartPage.getNthProductPrice(2) * cartPage.getNthProductQuantity(2),
-                cartPage.getNthProductSubtotal(2), "Invalid Fluffy Bunny subtotal.");
-        assertEquals(cartPage.getNthProductPrice(3) * cartPage.getNthProductQuantity(3),
-                cartPage.getNthProductSubtotal(3), "Invalid Valentine Bear subtotal.");
+        assertNotNull(cartPage.getCartItem(i -> i.getItem().equals("Stuffed Frog")),
+                "Stuffed Frog not found in Cart!");
+        assertNotNull(cartPage.getCartItem(i -> i.getItem().equals("Fluffy Bunny")),
+                "Fluffy Bunny not found in Cart!");
+        assertNotNull(cartPage.getCartItem(i -> i.getItem().equals("Valentine Bear")),
+                "Valentine Bear not found in Cart!");
+        assertEquals(cartPage.getCartItem(i -> i.getItem().equals("Stuffed Frog")).getPrice(),
+                10.99, "Invalid Stuffed Frog price.");
+        assertEquals(cartPage.getCartItem(i -> i.getItem().equals("Fluffy Bunny")).getPrice(),
+                8.99, "Invalid Fluffy Bunny price.");
+        assertEquals(cartPage.getCartItem(i -> i.getItem().equals("Valentine Bear")).getPrice(),
+                13.99, "Invalid Valentine Bear price.");
+        assertTrue(cartPage.getCartItem(i -> i.getItem().equals("Stuffed Frog")).isValid(),
+                "Invalid Stuffed Frog subtotal.");
+        assertTrue(cartPage.getCartItem(i -> i.getItem().equals("Fluffy Bunny")).isValid(),
+                "Invalid Fluffy Bunny subtotal.");
+        assertTrue(cartPage.getCartItem(i -> i.getItem().equals("Valentine Bear")).isValid(),
+                "Invalid Valentine Bear subtotal.");
         assertEquals(cartPage.getCalculatedTotal(), cartPage.getActualTotal(),
                 "Invalid calculated total price.");
     }

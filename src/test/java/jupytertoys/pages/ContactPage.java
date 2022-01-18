@@ -59,16 +59,12 @@ public class ContactPage {
         driver.findElement(By.className("btn-primary")).click();
     }
 
-    public String getErrorText(String errorName) {
-        var elements = driver.findElements(By.id(errorName + "-err"));
+    public String getErrorText(By locator) {
+        var elements = driver.findElements(locator);
         if (elements.size() == 0) {
             return "";
         }
         return elements.get(0).getText();
-    }
-
-    public String getAlertText(){
-       return driver.findElement(By.className("alert-success")).getText();
     }
 
     public void clickBackButton(){

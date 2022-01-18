@@ -1,5 +1,6 @@
 package jupytertoys.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import jupytertoys.pages.ContactPage;
 
@@ -11,7 +12,7 @@ public class ContactTests extends BaseTests {
         ContactPage contactPage = homePage.clickContactPage();
         contactPage.setEmail("thisisnotavalidemail");
         contactPage.clickSubmitButton();
-        assertEquals(contactPage.getErrorText("email"), "Please enter a valid email",
+        assertEquals(contactPage.getErrorText(By.id("email-err")), "Please enter a valid email",
                 "Email error is supposed to occur!");
     }
 
@@ -19,20 +20,20 @@ public class ContactTests extends BaseTests {
     public void testCase02() {
         ContactPage contactPage = homePage.clickContactPage();
         contactPage.clickSubmitButton();
-        assertEquals(contactPage.getErrorText("forename"), "Forename is required",
+        assertEquals(contactPage.getErrorText(By.id("forename-err")), "Forename is required",
                 "Forename error is supposed to occur!");
-        assertEquals(contactPage.getErrorText("email"), "Email is required",
+        assertEquals(contactPage.getErrorText(By.id("email-err")), "Email is required",
                 "Email error is supposed to occur!");
-        assertEquals(contactPage.getErrorText("message"), "Message is required",
+        assertEquals(contactPage.getErrorText(By.id("message-err")), "Message is required",
                 "Message error is supposed to occur!");
         contactPage.setForename("ex");
         contactPage.setEmail("example@gmail.com");
         contactPage.setMessage("I am new!");
-        assertEquals(contactPage.getErrorText("forename"), "",
+        assertEquals(contactPage.getErrorText(By.id("forename-err")), "",
                 "Forename error should not exist!");
-        assertEquals(contactPage.getErrorText("email"), "",
+        assertEquals(contactPage.getErrorText(By.id("email-err")), "",
                 "Email error should not exist!");
-        assertEquals(contactPage.getErrorText("message"), "",
+        assertEquals(contactPage.getErrorText(By.id("message-err")), "",
                 "Message error should not exist!");
     }
 
@@ -43,7 +44,7 @@ public class ContactTests extends BaseTests {
         contactPage.setEmail("example@gmail.com");
         contactPage.setMessage("I am new!");
         contactPage.clickSubmitButton();
-        assertEquals(contactPage.getAlertText(), "Thanks ex, we appreciate your feedback.",
+        assertEquals(contactPage.getErrorText(By.className("alert-success")), "Thanks ex, we appreciate your feedback.",
                 "Alert text should have appeared!");
     }
 }
