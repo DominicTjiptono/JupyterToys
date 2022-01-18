@@ -47,4 +47,14 @@ public class Product {
     public void setBuy(WebElement buy) {
         this.buy = buy;
     }
+
+    public void buyProduct() {
+        buy.click();
+    }
+
+    public void buyProduct(int times) {
+        for (int i = 0; i < times; i++) {
+            buy.click();
+        }
+    }
 }

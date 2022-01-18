@@ -19,6 +19,11 @@ public class ShopPage {
         this.driver = driver;
     }
 
+    public CartPage clickCartPage() {
+        driver.findElement(By.cssSelector("#nav-cart")).click();
+        return new CartPage(driver);
+    }
+
     public int getNumberOfItemsInCart() {
         return Integer.parseInt(driver.findElement(cartMenu).getText()
                 .substring(driver.findElement(cartMenu).getText().indexOf("(")+1,
