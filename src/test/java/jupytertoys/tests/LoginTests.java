@@ -10,6 +10,7 @@ public class LoginTests extends BaseTests {
         homePage.clickLoginPage();
         homePage.setUsername("anyvaluewilldo");
         homePage.setPassword("letmein");
+        homePage.clickAgreeCheckbox();
         homePage.clickLoginButton();
         assertEquals(homePage.getUsernameInMenuBar(), "anyvaluewilldo",
                 "Incorrect or no username appeared in the menu bar!");
@@ -21,6 +22,7 @@ public class LoginTests extends BaseTests {
         contactPage.clickLoginPage();
         contactPage.setUsername("anyvaluewilldo");
         contactPage.setPassword("letmein");
+        contactPage.clickAgreeCheckbox();
         contactPage.clickLoginButton();
         contactPage.clickLogoutMenu();
         contactPage.clickLogoutButton();

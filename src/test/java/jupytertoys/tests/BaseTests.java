@@ -37,7 +37,7 @@ public class BaseTests {
 
     @BeforeMethod
     public void goHome() {
-        driver.get("https://jupiter.cloud.planittesting.com/#/");
+        driver.get("https://jupiter2.cloud.planittesting.com/#/");
         homePage = new HomePage(driver);
     }
 

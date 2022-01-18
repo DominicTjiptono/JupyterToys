@@ -14,10 +14,10 @@ public class ShopTests extends BaseTests {
     @Test
     public void testCase06() {
         ShopPage shopPage = homePage.clickShopPage();
-        Product product = shopPage.getProduct(p -> p.getTitle().equals("Teddy Bear"));
+        Product product = shopPage.getProduct(p -> p.getTitle().equals("Smiley Bear"));
         assertNotEquals(product, null);
-        assertEquals(product.getPrice(), 12.99,
-                "Invalid Teddy Bear price.");
+        assertEquals(product.getPrice(), 13.99,
+                "Invalid Smiley Bear price.");
     }
 
     @Test

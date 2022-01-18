@@ -11,6 +11,7 @@ public class HomePage {
     private By passwordField = By.id("loginPassword");
     private By loginButton = By.className("btn-primary");
     private By usernameMenuBar = By.id("nav-user");
+    private By agreeCheckbox = By.id("agree");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -22,6 +23,10 @@ public class HomePage {
 
     public void setPassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
+    }
+
+    public void clickAgreeCheckbox() {
+        driver.findElement(agreeCheckbox).click();
     }
 
     public HomePage clickHomePage() {

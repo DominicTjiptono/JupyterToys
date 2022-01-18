@@ -21,6 +21,8 @@ public class ContactPage {
     private By usernameMenuBar = By.id("nav-user");
     private By usernameField = By.id("loginUserName");
     private By passwordField = By.id("loginPassword");
+    private By agreeCheckbox = By.id("agree");
+    private By submitButton = By.id("contact-submit-btn");
 
     public ContactPage(WebDriver driver){
         this.driver = driver;
@@ -42,6 +44,10 @@ public class ContactPage {
         driver.findElement(passwordField).sendKeys(password);
     }
 
+    public void clickAgreeCheckbox() {
+        driver.findElement(agreeCheckbox).click();
+    }
+
     public void setEmail(String email){
         driver.findElement(emailField).sendKeys(email);
     }
@@ -55,7 +61,7 @@ public class ContactPage {
     }
 
     public void clickSubmitButton(){
-        driver.findElements(By.className("btn-primary")).get(0).click();
+        driver.findElement(By.className("btn-primary")).click();
     }
 
     public String getForenameErrorText() {
