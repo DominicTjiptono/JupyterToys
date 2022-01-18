@@ -13,16 +13,11 @@ public class ContactPage {
     private By emailField = By.id("email");
     private By telephoneField = By.id("telephone");
     private By messageField = By.id("message");
-    private By forenameError = By.id("forename-err");
-    private By emailError = By.id("email-err");
-    private By messageError = By.id("message-err");
-    private By statusAlert = By.className("alert-success");
     private By backButton = By.className("btn");
     private By usernameMenuBar = By.id("nav-user");
     private By usernameField = By.id("loginUserName");
     private By passwordField = By.id("loginPassword");
     private By agreeCheckbox = By.id("agree");
-    private By submitButton = By.id("contact-submit-btn");
 
     public ContactPage(WebDriver driver){
         this.driver = driver;
@@ -73,11 +68,7 @@ public class ContactPage {
     }
 
     public String getAlertText(){
-        var elements = driver.findElements(statusAlert);
-        if (elements.size() == 0) {
-            return "";
-        }
-        return elements.get(0).getText();
+       return driver.findElement(By.className("alert-success")).getText();
     }
 
     public void clickBackButton(){
