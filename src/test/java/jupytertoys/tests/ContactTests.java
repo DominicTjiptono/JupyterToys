@@ -6,6 +6,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import jupytertoys.pages.ContactPage;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import static org.testng.Assert.assertEquals;
 
 public class ContactTests extends BaseTests {
@@ -52,32 +57,22 @@ public class ContactTests extends BaseTests {
 
     @DataProvider
     public Object[][] contactFieldsData() {
-        Object[][] data = new Object[5][5];
-        data[0][0] = "ex";
-        data[0][1] = "";
-        data[0][2] = "example@gmail.com";
-        data[0][3] = "";
-        data[0][4] = "I am new!";
-        data[1][0] = "new user";
-        data[1][1] = "one";
-        data[1][2] = "newUserOne@gmail.com";
-        data[1][3] = "";
-        data[1][4] = "Website improvement needed!";
-        data[2][0] = "new user";
-        data[2][1] = "two";
-        data[2][2] = "newUserTwo@gmail.com";
-        data[2][3] = "029 8822 6655";
-        data[2][4] = "I am new!";
-        data[3][0] = "new user";
-        data[3][1] = "";
-        data[3][2] = "newUser@gmail.com";
-        data[3][3] = "053 2312 3112";
-        data[3][4] = "I am new!";
-        data[4][0] = "random";
-        data[4][1] = "";
-        data[4][2] = "random@gmail.com";
-        data[4][3] = "";
-        data[4][4] = "This is awesome!";
-        return data;
+        try {
+            Object[][] data = new Object[5][5];
+            BufferedReader bufferedReader = new BufferedReader(new FileReader
+                    ("src/test/java/jupytertoys/tests/contact_fields_data.csv"));
+            String line;
+            int index = 0;
+            bufferedReader.readLine();
+            while ((line = bufferedReader.readLine()) != null) {
+                Object[] lineData = line.split(",");
+                data[index] = lineData;
+                index++;
+            }
+            return data;
+        }
+        catch (IOException ex) {
+            return new Object[5][5];
+        }
     }
 }
