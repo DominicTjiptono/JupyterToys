@@ -65,7 +65,7 @@ public class ContactPage {
     }
 
     public void clickSubmitButton(){
-        driver.findElement(By.className("btn-primary")).click();
+        driver.findElement(By.id("contact-submit-btn")).click();
     }
 
     public String getErrorText(By locator) {
