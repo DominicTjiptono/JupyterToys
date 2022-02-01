@@ -26,6 +26,7 @@ public class BaseTests {
 
     @BeforeClass
     public void setUp() {
+        new File("target/screenshots/").mkdir();
         for (File file : Objects.requireNonNull(new File("target/screenshots/").listFiles())) {
             file.delete();
         }
