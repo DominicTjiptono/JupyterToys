@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class ContactPage {
 
     // Class attributes
@@ -67,7 +69,7 @@ public class ContactPage {
     }
 
     public void clickSubmitButton(){
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("contact-submit-btn")));
         element.click();
     }
