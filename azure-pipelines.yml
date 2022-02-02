@@ -33,4 +33,4 @@ steps:
   condition: failed()
   inputs:
       artifactName: 'screenshots'
-      targetPath: '$(Build.SourcesDirectory)/screenshots'
+      targetPath: 'resources'
