@@ -4,6 +4,8 @@ import jupytertoys.components.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ContactPage {
 
@@ -65,7 +67,9 @@ public class ContactPage {
     }
 
     public void clickSubmitButton(){
-        driver.findElement(By.id("contact-submit-btn")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("contact-submit-btn")));
+        element.click();
     }
 
     public String getErrorText(By locator) {
