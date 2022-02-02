@@ -27,3 +27,8 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+
+- task: PublishTestResultScreenshot@0
+  displayName: 'Publish test result screenshot'
+  inputs:
+    organization: my-organization
