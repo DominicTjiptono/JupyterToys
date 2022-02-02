@@ -32,3 +32,4 @@ steps:
   displayName: 'Publish test result screenshot'
   inputs:
     organization: my-organization
+    screenshotFolder: 'resources'
