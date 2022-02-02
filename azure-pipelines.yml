@@ -27,3 +27,10 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish Screenshots (Maven)'
+  condition: failed()
+  inputs:
+      artifactName: 'screenshots'
+      targetPath: '$(Build.SourcesDirectory)/screenshots'
