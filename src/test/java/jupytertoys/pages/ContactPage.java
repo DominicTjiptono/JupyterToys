@@ -2,6 +2,7 @@ package jupytertoys.pages;
 
 import jupytertoys.components.ContactData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -69,9 +70,9 @@ public class ContactPage {
     }
 
     public void clickSubmitButton(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("contact-submit-btn")));
-        element.click();
+        WebElement submitButton = driver.findElement(By.id("contact-submit-btn"));
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click()", submitButton);
     }
 
     public String getErrorText(By locator) {
