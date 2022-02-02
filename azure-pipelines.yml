@@ -19,3 +19,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'mvn clean test'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml' 
