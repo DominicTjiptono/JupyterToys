@@ -35,12 +35,6 @@ steps:
     ArtifactName: 'FailureScreenshots'
     publishLocation: 'Container'
 
-- task: PublishTestResults@2
-  condition: failed()
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml' 
-
 - task: PublishTestResultScreenshot@0
   displayName: 'Publish test result screenshot'
   condition: failed()
