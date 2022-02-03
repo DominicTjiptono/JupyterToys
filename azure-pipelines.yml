@@ -31,5 +31,5 @@ steps:
 - task: PublishTestResultScreenshot@0
   displayName: 'Publish test result screenshot'
   inputs:
-    organization: my-organization
+    organization: dtjiptono
     screenshotFolder: 'target/screenshots'
