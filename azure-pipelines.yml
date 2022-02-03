@@ -30,6 +30,7 @@ steps:
 
 - task: PublishTestResultScreenshot@0
   displayName: 'Publish test result screenshot'
+  condition: failed()
   inputs:
     organization: dtjiptono
     screenshotFolder: 'target/screenshots'
