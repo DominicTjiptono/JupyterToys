@@ -40,4 +40,4 @@ steps:
   condition: failed()
   inputs:
     organization: 'dtjiptono'
-    screenshotFolder: "FailureScreenshots"
+    screenshotFolder: "target/screenshots"
