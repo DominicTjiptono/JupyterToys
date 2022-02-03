@@ -35,9 +35,14 @@ steps:
     ArtifactName: 'FailureScreenshots'
     publishLocation: 'Container'
 
+- task: PublishTestResults@2
+  inputs:
+    #testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+    #testResultsFiles: '**/TEST-*.xml' 
+
 - task: PublishTestResultScreenshot@0
   displayName: 'Publish test result screenshot'
   condition: failed()
   inputs:
     organization: 'dtjiptono'
-    screenshotFolder: "**/target/screenshots/"
+    screenshotFolder: "target/screenshots/"
