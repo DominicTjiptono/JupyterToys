@@ -40,4 +40,4 @@ steps:
   condition: failed()
   inputs:
     organization: 'dtjiptono'
-    screenshotFolder: "#/14966128/FailureScreenshots"
+    screenshotFolder: "**/target/screenshots/"
