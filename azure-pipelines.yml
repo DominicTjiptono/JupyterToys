@@ -37,8 +37,8 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    #testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    #testResultsFiles: '**/TEST-*.xml' 
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml' 
 
 - task: PublishTestResultScreenshot@0
   displayName: 'Publish test result screenshot'
