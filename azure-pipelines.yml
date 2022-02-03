@@ -39,5 +39,5 @@ steps:
   displayName: 'Publish test result screenshot'
   condition: failed()
   inputs:
-    organization: dtjiptono
-    screenshotFolder: "target/screenshots"
+    organization: 'dtjiptono'
+    screenshotFolder: "FailureScreenshots"
