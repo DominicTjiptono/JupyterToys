@@ -28,9 +28,9 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 
-- task: PublishTestResultScreenshot@0
-  displayName: 'Publish test result screenshot'
+- task: PublishBuildArtifacts@1
   condition: failed()
   inputs:
-    organization: 'dtjiptono'
-    screenshotFolder: "/target/screenshots"
+    PathtoPublish: '/target/screenshots'
+    ArtifactName: 'FailureScreenshots'
+    publishLocation: 'Container'
