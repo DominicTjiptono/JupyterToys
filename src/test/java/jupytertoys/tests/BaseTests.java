@@ -14,6 +14,8 @@ import org.testng.annotations.BeforeMethod;
 import jupytertoys.pages.HomePage;
 import jupytertoys.utils.EventReporter;
 import jupytertoys.utils.WindowManager;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,12 +26,16 @@ public class BaseTests {
     private EventFiringWebDriver driver;
     protected HomePage homePage;
 
-    @BeforeClass
-    public void setUp() {
+    @BeforeSuite
+    public void startTestSuite() {
         new File("target/screenshots/").mkdir();
         for (File file : Objects.requireNonNull(new File("target/screenshots/").listFiles())) {
             file.delete();
         }
+    }
+
+    @BeforeClass
+    public void setUp() {
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
