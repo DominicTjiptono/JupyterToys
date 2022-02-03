@@ -31,6 +31,6 @@ steps:
 - task: PublishBuildArtifacts@1
   condition: failed()
   inputs:
-    PathtoPublish: '/target/screenshots'
+    PathtoPublish: 'target/screenshots'
     ArtifactName: 'FailureScreenshots'
     publishLocation: 'Container'
