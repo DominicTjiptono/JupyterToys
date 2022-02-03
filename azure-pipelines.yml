@@ -33,3 +33,4 @@ steps:
   condition: failed()
   inputs:
     organization: dtjiptono
+    screenshotFolder: "/target/screenshots"
