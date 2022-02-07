@@ -36,7 +36,6 @@ steps:
     publishLocation: 'Container'
 
 - task: PublishTestResults@2
-  condition: failed()
   inputs:
     testResultsFiles: '**/TEST-*.xml'
     testResultsFormat: 'JUnit'
