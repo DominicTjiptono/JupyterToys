@@ -40,4 +40,4 @@ steps:
   inputs:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     testResultsFormat: 'JUnit'
-    searchFolder: "target/screenshots/"
+    searchFolder: "target/screenshots"
