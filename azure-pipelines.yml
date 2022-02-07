@@ -38,6 +38,6 @@ steps:
 - task: PublishTestResults@2
   condition: failed()
   inputs:
-    testResultsFiles: 'target/surefire-reports/testng-results.xml'
+    testResultsFiles: '**/TEST-*.xml'
     testResultsFormat: 'JUnit'
     searchFolder: "target/screenshots/"
