@@ -38,6 +38,6 @@ steps:
 - task: PublishTestResults@2
   condition: failed()
   inputs:
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/test-*.xml'
     testResultsFormat: 'JUnit'
     searchFolder: "target/screenshots/"
