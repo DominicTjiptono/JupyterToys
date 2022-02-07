@@ -40,4 +40,4 @@ steps:
   inputs:
     testResultsFiles: '**/TEST-*.xml'
     testResultsFormat: 'JUnit'
-    searchFolder: "$(Agent.BuildDirectory)"
+    searchFolder: "$(Agent.BuildDirectory)/target/screenshots"
