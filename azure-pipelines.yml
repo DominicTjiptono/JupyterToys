@@ -34,10 +34,3 @@ steps:
     PathtoPublish: 'target/screenshots'
     ArtifactName: 'FailureScreenshots'
     publishLocation: 'Container'
-
-- task: PublishTestResultScreenshot@0
-  displayName: 'Publish test result screenshot'
-  condition: failed()
-  inputs:
-    organization: 'dtjiptono'
-    screenshotFolder: "**/screenshots"
