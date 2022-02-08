@@ -35,9 +35,9 @@ steps:
     ArtifactName: 'FailureScreenshots'
     publishLocation: 'Container'
 
-- task: PublishTestResults@2
+- task: PublishTestResultScreenshot@0
+  displayName: 'Publish test result screenshot'
   condition: failed()
   inputs:
-    testResultsFiles: '**/TEST-*.xml'
-    testResultsFormat: 'JUnit'
-    searchFolder: "$(Agent.BuildDirectory)"
+    organization: 'dtjiptono'
+    screenshotFolder: "**/screenshots"
