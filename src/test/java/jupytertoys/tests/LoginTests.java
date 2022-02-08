@@ -12,7 +12,7 @@ public class LoginTests extends BaseTests {
         homePage.setPassword("letmein");
         homePage.clickAgreeCheckbox();
         homePage.clickLoginButton();
-        assertEquals(homePage.getUsernameInMenuBar(), "anyvaluewill",
+        assertEquals(homePage.getUsernameInMenuBar(), "anyvaluewilldo",
                 "Incorrect or no username appeared in the menu bar!");
     }
 

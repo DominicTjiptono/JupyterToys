@@ -13,7 +13,7 @@ public class ShopTests extends BaseTests {
         ShopPage shopPage = homePage.clickShopPage();
         Product product = shopPage.getProduct(p -> p.getTitle().equals("Smiley Bear"));
         assertNotEquals(product, null);
-        assertEquals(product.getPrice(), 1.99,
+        assertEquals(product.getPrice(), 13.99,
                 "Invalid Smiley Bear price.");
     }
 
